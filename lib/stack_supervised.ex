@@ -13,6 +13,10 @@ defmodule StackSupervised.Server do
     GenServer.cast(__MODULE__, :pop)
   end
 
+  def get do
+    GenServer.call(__MODULE__, :get)
+  end
+
   def push(item) do
     GenServer.call(__MODULE__, {:push, item})
   end
@@ -29,6 +33,10 @@ defmodule StackSupervised.Server do
 
   def handle_call({:push, item}, _from, state) do
     {:reply, "Added item #{inspect(item)}", [item | state]}
+  end
+
+  def handle_call(:get, _from, state) do
+    {:reply, state, state}
   end
 
   def terminate(_reason, current_state) do
