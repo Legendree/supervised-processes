@@ -5,8 +5,8 @@ defmodule StackSupervised.Server do
 
   # Interface implementation
 
-  def start_link(initial_state \\ []) do
-    GenServer.start_link(__MODULE__, initial_state, name: __MODULE__)
+  def start_link(_) do
+    GenServer.start_link(__MODULE__, :no_args, name: __MODULE__)
   end
 
   def pop do
@@ -23,7 +23,7 @@ defmodule StackSupervised.Server do
 
   # Process implementation
 
-  def init(_) do
+  def init(:no_args) do
     {:ok, Stash.get()}
   end
 
