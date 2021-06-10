@@ -1,5 +1,5 @@
 defmodule StackSupervised.Server do
-  use GenServer
+  use GenServer, restart: :permanent
 
   alias StackSupervised.Stash
 

@@ -14,8 +14,11 @@ defmodule StackSupervised.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
-      mod: {StackSupervised.Application, []}
+      registered: [
+        Sequence.Server
+      ],
+      env: [initial_state: []],
+      mod: {StackSupervised, []}
     ]
   end
 

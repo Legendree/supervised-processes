@@ -6,10 +6,10 @@ defmodule StackSupervised.Application do
   use Application
 
   @impl true
-  def start(_type, _args) do
+  def start(_type, initial_state) do
     children = [
       # Starts a worker by calling: StackSupervised.Worker.start_link(arg)
-      {StackSupervised.Stash, []},
+      {StackSupervised.Stash, initial_state},
       {StackSupervised.Server, nil}
     ]
 

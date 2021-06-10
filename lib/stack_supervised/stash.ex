@@ -1,5 +1,5 @@
 defmodule StackSupervised.Stash do
-  use GenServer
+  use GenServer, restart: :permanent
 
   @me StackSupervised.Stash
 
