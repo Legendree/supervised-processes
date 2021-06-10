@@ -17,8 +17,8 @@ defmodule StackSupervised.MixProject do
       registered: [
         Sequence.Server
       ],
-      env: [initial_state: []],
-      mod: {StackSupervised, []}
+      env: [initial_state: ["hello", "world"]],
+      mod: {StackSupervised.Application, []}
     ]
   end
 
